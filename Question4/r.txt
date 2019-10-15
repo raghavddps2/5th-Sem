@@ -1,0 +1,4 @@
+Hello there
+What do we have there
+This is a text file being read using python
+python is an amazing programming langauge
