@@ -2,6 +2,8 @@ BEGIN {
     ftpPackets = 0;
     ftpSize = 0;
     cbrSize = 0;
+    totalFtp = 0;
+    totalCbr = 0;
     cbrPackets = 0;
 }
 {

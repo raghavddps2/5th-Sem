@@ -21,7 +21,7 @@ proc finish {} {
     exit 0
 }
 
-# Creating 6 nodes.
+# Creating 6/(7 actually) nodes.
 for {set i 0} {$i < 7} {incr i} {
     set n($i) [$ns node]
 }

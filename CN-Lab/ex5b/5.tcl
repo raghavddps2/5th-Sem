@@ -41,7 +41,6 @@ $ns simplex-link $n(3) $n(2) 0.3Mb 100ms DropTail
 #Create a LAN stup.
 set lan [$ns newLan "$n(3) $n(4) $n(5) $n(6)" 0.5Mb 40ms LL Queue/DropTail MAC/Csma/Cd Channel]
 
-
 #orientation
 $ns duplex-link-op $n(0) $n(2) orient right-down
 $ns duplex-link-op $n(1) $n(2) orient right-up
@@ -52,7 +51,7 @@ $ns simplex-link-op $n(3) $n(2) orient left
 set TCPAgent [new Agent/TCP/Newreno]
 $ns attach-agent $n(0) $TCPAgent
 $TCPAgent set fid_ 1
-$TCPAgent set packetSize 552
+$TCPAgent set packetSize_ 552
 
 #Create a TCP sink
 set TCPSink [new Agent/TCPSink/DelAck]
