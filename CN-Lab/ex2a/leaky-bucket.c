@@ -30,7 +30,7 @@ void leakybucket(int bufferMax, int outRate){
     for(int i=0;i<MAXPACKETS;i++){
         printf("\n------------------------------------------");
         printf("\nIncoming packet size:\t");
-        curr_packet = rand()%pmax + 10;
+        curr_packet = rand()%pmax + 10; //Random way to generate a random packet size. Better we can do using the random(1000) function!!
 
         printf("%d",curr_packet);
 
