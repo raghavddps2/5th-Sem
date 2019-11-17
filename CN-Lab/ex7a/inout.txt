@@ -1,0 +1,76 @@
+Here's how the output looks.
+
+1. Insert an element into the queue
+2. Delete an element from the queue
+3. Display the queue elements.
+4. Exit!
+ Enter your choice1
+
+ Enter the value to be inserted:	5
+
+ Enter your choice3
+5 
+
+ Enter your choice1
+
+ Enter the value to be inserted:	6
+
+ Enter your choice3
+6 5 
+
+ Enter your choice1
+
+ Enter the value to be inserted:	7
+
+ Enter your choice3
+7 6 5 
+
+ Enter your choice1
+
+ Enter the value to be inserted:	9
+
+ Enter your choice3
+9 7 6 5 
+
+ Enter your choice1
+
+ Enter the value to be inserted:	8
+
+ Enter your choice3
+9 8 7 6 5 
+
+ Enter your choice2
+
+ Enter the value to delete:	6
+
+ Enter your choice3
+9 8 7 5 
+
+ Enter your choice2
+
+ Enter the value to delete:	2
+2 not found in the queue to delete
+ Enter your choice2 
+
+ Enter the value to delete:	8
+
+ Enter your choice2
+
+ Enter the value to delete:	9
+
+ Enter your choice3
+7 5 
+
+ Enter your choice2
+
+ Enter the value to delete:	5
+
+ Enter your choice2
+
+ Enter the value to delete:	7
+
+ Enter your choice2
+
+ Enter the value to delete:	3
+
+Queue is empty, so we have no elements to delete.
