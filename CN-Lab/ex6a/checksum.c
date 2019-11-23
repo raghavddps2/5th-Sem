@@ -144,7 +144,7 @@ void main(){
         //We can modify the dataword itself
         int num = (rand() % (strlen(str)));   //We randomlt generate the index number of the bit to change.
         printf("\nRandom number: %d, so we will change the this indexed character.",num);
-        str[num] = 'o'; //We modify the character at that index to 'o'
+        str[num]++; //This will simply introduce some error, as it will increase the character by one.
         sum2 = generateChecksum(1,sum1); //We again generate the checksum.
 
         /*
