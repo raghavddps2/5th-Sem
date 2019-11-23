@@ -65,6 +65,10 @@ int generateChecksum(int mode,int checksum){
         an: Same repeated for this
     
      */
+    /*
+        More detailed answer as to why we multiply by 256, can be found here.
+        https://forum.dexterindustries.com/t/why-do-you-need-to-multiply-by-256-and-add-some-bits-when-reading-analog/4538/2
+    */
     for(int i=0;i<n;i++){
         temp = str[i*2];
         temp = (temp*256) + str[(i*2)+1];
