@@ -29,6 +29,8 @@
 
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
+#include<time.h>
 
 #define N strlen(g)  //We define it to get the number of digits in the divisor, because according to the CRC method, we will then add N-1 zeros.
 
@@ -140,12 +142,9 @@ int main(){
     if(e == 0){
         //We will ask the user where to insert the faulty bit till he gives a number between 0 and a+n-1.
         
-        do{
-            printf("\n Enter the position where you want to insert the error.:\t");
-            scanf("%d",&e);
-        }while((e == 0) || (e > a+N-1)); // He, cannot even enter 0, as in the next line we see we reference digits with e-1. So, that explains the while condition very well.
-
-        td[e-1] = ((td[e-1] == '0') ? '1' : '0'); //Here, we simply change the bit to 0 if it is 1 and to 1 if it is 0. 
+        srand(time(0));
+        int pos=rand()%a;
+        td[pos] = ((td[pos] == '0') ? '1' : '0'); //Here, we simply change the bit to 0 if it is 1 and to 1 if it is 0. 
 
         printf("\n Erroneous data: %s",td); //We will just print the erroneous data.
     }
