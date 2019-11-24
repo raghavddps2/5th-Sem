@@ -25,14 +25,14 @@ int main(){
     serverSocket = socket(PF_INET,SOCK_STREAM,0);
 
     serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(5000);
+    serverAddr.sin_port = htons(7000);
     serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
     memset(serverAddr.sin_zero,'\0',sizeof serverAddr.sin_zero);
 
     //Now, one important method to bind the address to the socket.
     bind(serverSocket,(struct sockaddr *)&serverAddr,sizeof(serverAddr));
     if(listen(serverSocket,5) == 0){
-        printf("jjj");
+        printf("Listening..");
     }
     else{
         printf("\nQueue is full");
