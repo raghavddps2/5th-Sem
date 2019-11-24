@@ -49,7 +49,7 @@ int bf(int G[20][20],int V,int E,int edge[20][2]){
             }
         }
     }
-    //When we are done with V-1 iterations, we will try for E times and even if now it changes, 
+    //When we are done with V-1 iterations, we will try for for one more iteration, if it changes,, 
     // we will set the flag to 0.
 
     for(k=0;k<E;k++){
