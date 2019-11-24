@@ -23,7 +23,7 @@ int main(){
 
     //We will configure the settings as in the client file.
     serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(8000);
+    serverAddr.sin_port = htons(7891);
     serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
     memset(serverAddr.sin_zero,'\0',sizeof serverAddr.sin_zero);
     //We need to bind the address struct to the socket, so that it can listen.
