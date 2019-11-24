@@ -6,6 +6,7 @@
 
 char td[20];
 char cs[20];
+char tempBin[200];
 char g[] = "1001";
 int a;
 void xor(){
@@ -13,6 +14,43 @@ void xor(){
     for(int k=1;k<N;k++){
         cs[k] = ((cs[k] == g[k]) ? '0' : '1');
     }
+}
+
+void convert(){
+
+
+        int n = strlen(td);
+        int k=0,i;
+        char r[7]; //This is just for storing the binary equivalent of each character.
+        for(i=0;i<n;i++){
+            strcpy(r,""); //Everytime for each character we empty it. Initializing here.
+            int val = (int)(td[i]); //get decimal equivalent.
+
+            char ch1 = '1'; //If remainder by 2 is not zero.
+            char ch2 = '0'; //If remainder by 2 is 0.
+
+            while(val >0){
+                (val%2) ? strncat(r,&ch1,1) : strncat(r,&ch2,1);
+                val /= 2;
+            }
+            //we will call reverse at each step, to get the correct binary equivalen(form) and to append it to the binary quivalent.
+            //NOw we will reverse the same.
+            
+            int n = strlen(r)-1;
+            int s = strlen(tempBin); //To get the current length.
+            int i;
+
+            for(i=n;i>=0;i--){
+                printf("%c",r[i]);
+                tempBin[s++] = r[i];
+            }
+            printf(" ");
+        }
+        //This will just copy the same to the dataword, so that the processing goes on smoothly.
+        for(int i=0;i<strlen(tempBin);i++){
+            td[i] = tempBin[i];
+        }
+
 }
 
 void crc(){ 
@@ -39,11 +77,26 @@ void crc(){
 
 }
 
+
 int main(){
 
-    printf("\nEnter the data you want to send");
-    scanf("%s",td);
 
+    printf("\n Press 1 for binary data, Press 2 for string data");
+    int ch1;
+    scanf("%d",&ch1);
+
+    if(ch1 == 1){
+        printf("\nEnter the data you want to send(binary)");
+        scanf("%s",td);
+    }
+
+    //The else part just converts the string to binary.
+    else{
+        printf("\nEnter the data you want to send(String)");
+        scanf("%s",td);
+        convert();
+        printf("\nEntered data in binary is %s",td);
+    }
     printf("\nOriginal data is %s",td);
     a = strlen(td);
     //We will add n-1 zero's to the dataword.
