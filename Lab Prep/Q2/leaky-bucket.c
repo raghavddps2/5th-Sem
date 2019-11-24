@@ -1,73 +1,58 @@
 #include<stdio.h>
-#include<time.h>
 #include<stdlib.h>
-#define MAX_PACKETS 10
-void leakybucket(int bufferMax,int outputRate){
-
-    int curr_pack_size = 0;
-    int buffer_size = 0;
-
-    int pmax = bufferMax + 0.3*bufferMax;
-    srand(time(NULL));
-    for(int i=0;i<MAX_PACKETS;i++){
-        
-        printf("\n--------------Packet %d -------------------------\n",(i+1));
-        curr_pack_size = rand()%pmax + 10;
-        printf("\n Packet size: %d",curr_pack_size);
-        if(curr_pack_size + buffer_size > bufferMax){
-            printf("\n Insufficient space, packet dropped");
-        }
-        else{
-            buffer_size += curr_pack_size;
-            printf("\nPackets added with size:\t%d",curr_pack_size);
-        }
-        printf("\nSize of buffer till now:\t%d",buffer_size);
-
-        if(!buffer_size){
-            printf("\nBuffer is empty");
-        }
-        if(buffer_size > outputRate){
-            buffer_size -= outputRate;
-            printf("\n%d bytes sent and %d bytes left\n",outputRate,buffer_size);
-        }
-        else{
-            printf("\n%d bytes sent and buffer is empty now.\n",buffer_size);
-            buffer_size = 0;
-        }
-    }
-
-    //Paxckets are genrated but some buffer will be there.
-    while(buffer_size){
-
-        printf("\n --------------------------------------------------------\n");
-        if(buffer_size >= outputRate){
-            buffer_size -= outputRate;
-            printf("\n%d bytes sent and %d bytes left",outputRate,buffer_size);
-        }
-        else{
-            printf("%d bytes sent and buffer is empty now",buffer_size);
-            buffer_size = 0;
-        }
-
-        printf("\nSize of buffer: %d",buffer_size);
-
-    }
-    printf("\n\nNo more data\n");
-}
-
+#include<time.h>
+#define MIN(x,y) (x>y)?y:x //Fnction definition for minimum.
 int main(){
 
-    int bufferMax; //This is the Maximum allowed buffer size we have.
-    int outRate; //This is the output flow rate we want to achieve.
+    int outputRate = 2; //This is the output rate for the algorithm.
+    int capacity = 5; //This is the capacity of the bucket.
+    int packets[10] = {0}; //This is the number of packets initially in all the iterations.
+    int dropped = 0; //This tells the packets dropped at each iteration/.
+    int contains = 0; //Conetnt of the bucket at each step.
 
-    printf("\nEnter the Maximum Buffer:\t");
-    scanf("%d",&bufferMax);
+    printf("\n Bucket Size: %d",capacity);
+    printf("\nOutput Rate: %d",outputRate);
+    srand(time(NULL));
+    int i=0;
 
-    printf("\nEnter the Output Rate:\t");
-    scanf("%d",&outRate);
+    //As of now we will take for 5 packets.
+    do{
+        packets[i] = rand()%10;
+        printf("\nNo of packets coming at second %d: %d",(i+1),packets[i]);
+        i++;
+    }while(i<5);
 
-    //We just now pass the Maximum buffer allowed and the outPut rate to the leaky bucket algorithm function and it shows how the data is transferred.
-    leakybucket(bufferMax,outRate);
+    //We can store the current i in some variable numItr.
+    int numItr = i;
+    printf("\nSummary\n");
+    printf("\n Second\t  Received \t Packets Sent\t  Packets Dropped \t  Remaining\n");
+    for(i=0;contains || i<numItr;i++){
 
+        printf("%d",i+1);
+        printf("\t\t%d",packets[i]);
+        //What will be sent, what is minimum of output rate and contains + packetSize
+        printf("\t\t%d",MIN((packets[i]+contains),outputRate));
+
+
+        int incoming = contains + packets[i] - outputRate;
+        if(incoming > 0){
+            
+            //If the incoming request now is greater than capacity, we accomodate the capacity one and drop remaiming.
+            if(incoming > capacity){
+                contains = capacity;
+                dropped = incoming - capacity;
+            }
+
+            else{
+                contains = incoming;
+                dropped = 0;
+            }
+        }   
+        else{
+            dropped = 0;
+            contains = 0;
+        }
+        printf("\t\t%d\t\t%d\n",dropped,contains);
+    }
     return 0;
 }
