@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ATM Application</title>
+</head>
+<body>
+    
+    <h1>ATM</h1>
+    <h1>Your balance: {{balance}} and your transaction count: {{sess_count}}</h1>
+
+    <h2>{{message}}</h2>
+
+    <form action="{{url_for('index')}}" method="POST" id="atm">
+        Enter Amount: <input type="number" name="amount">
+        <input type="submit" name="action" value="Deposit" onclick="return validate(this)">
+        <input type="submit" name="action" value="Withdraw" onclick="return validate(this)">
+    </form>
+<script>
+
+    //We pass this there, implies the refernce of the button clicked.
+    function validate(button){
+        var form = document.getElementById("atm");
+        if (form.amount.value == ""){
+            alert("Amount required");
+            return false; //When we return false from here, the python on the server side is never executed only!!
+        }
+
+        // if(parseInt(form.amount.value) < 0){
+        //     alert("Amount cannnot be negative");
+        //     return false;
+        // }
+
+        if(button.value == "Withdraw" && form.amount.value > 5000){
+            alert("Cannnot withdraw more than 5000");
+            return false;
+        }
+
+        if(button.value == "Deposit" && form.amount.value > 10000){
+            alert("Cannot deposit more than 10000");
+            return false;
+        }
+        //else in every case, we can return true.
+    }
+</script>
+
+</body>
+</html>
