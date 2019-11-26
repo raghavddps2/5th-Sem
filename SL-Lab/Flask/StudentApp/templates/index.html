@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Registration</title>
+</head>
+<body bgcolor="green">
+    <center>
+    <h1>Register Here</h1>
+    <h2>{{msg}}</h2>
+
+    <form method="POST" action="{{url_for('index')}}">
+       Enter USN: <input type="text" name="usn" placeholder="1MS17IS086"> <!--This is for the USN-->
+       Enter DOB: <input type="date" name="dob" placeholder="12/02/1999"> <!--This is for the Date of birth-->
+                  <input type="submit" name="Register" value="Register">
+
+    </form>
+</center>
+</body>
+</html>
