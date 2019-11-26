@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Form with Flask.</title>
+</head>
+<body bgcolor="green"> <!--THe green colour is just to show my shit design sense.-->
+    <center>
+        <h1>{{message}}</h1> 
+        <!-- THe above line will display whatever message is sent from the server. -->
+
+        <form method="POST" action="{{url_for('login')}}">
+            <h2>Welcome to the Scripting Language Lab. </h2>
+
+            USN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="usn"></br>
+            Password: <input type="password" name="password"><br></br>
+            <input type="submit" name="login" value="Login">
+
+        </form>
+</center>
+</body>
+</html>
