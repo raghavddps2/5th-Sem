@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Store!</title>
+</head>
+<body bgcolor="black">
+    <center>
+    <h1 style="color:antiquewhite">Store Items</h1>
+    <form action="{{url_for('store')}}" method="POST">
+        <h4 style="color:antiquewhite">shirt: Rs 200</h4> <input type="number" name="shirt" placeholder="0" min="0" value="0"/><br/>
+        <h4 style="color:antiquewhite">jeans: Rs 200</h4><input type="number" name="jeans" placeholder="0" min="0" value="0"/><br/>
+        <h4 style="color:antiquewhite">shoes: Rs 20000 </h4><input type="number" name="shoes" placeholder="0" min="0" value="0"/><br/>
+        <br/>
+        <input type="submit" value="Add to cart">
+    </form>
+    <a href="{{url_for('cart')}}"> View Shopping Cart</a>
+</center>
+</body>
+</html>

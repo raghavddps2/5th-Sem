@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your cart</title>
+</head>
+<body bgcolor="black">
+    <center>
+    <h1 style="color: aliceblue">Items in cart</h1>
+
+    {% for item in cart %}
+        <h4 style="color: antiquewhite">{{item["name"]}}: {{item["quantity"]}}</h4>
+    {% endfor %}
+
+    <a href="{{url_for('store')}}">Continue Shopping</a><br/><br/>
+    <a href="{{url_for('bill')}}">View Bill</a><br/><br/>
+    </center>
+</body>
+</html>

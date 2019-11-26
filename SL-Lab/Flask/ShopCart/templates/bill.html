@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generated Bill.</title>
+</head>
+<body>
+    <center>
+    <h1>Bill</h1>
+    <table border="1" width="50%">
+        <tr>
+            <td>Item</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            
+        </tr>
+
+        {% for item in cart%}
+            <tr>
+                <td>{{item["name"]}}</td>
+                <td>{{item["quantity"]}}</td>
+                <td>{{item["price"]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p>Total bill amount: Rs. {{amount}}</p>
+    <a href="{{url_for('store')}}">Continue Shopping!</a><br/>
+</center>
+</body>
+</html>
