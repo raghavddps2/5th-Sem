@@ -6,7 +6,7 @@ declare
     rec varchar(30);
 begin 
     select to_char(sysdate,'Dy') into rec from dual;
-    if rec = 'Thu' or rec = 'Wed'
+    if rec = 'Tue' or rec = 'Wed'
         then dbms_output.put_line(rec);
         raise_application_error(-23043,'Cant do the same');
     end if;
