@@ -92,7 +92,7 @@ begin
     close c2;
 
     update account
-       set balance = balance + 0.28balance
+       set balance = balance + 0.28*balance
         where accno='A1';
     dbms_output.put_line(sql%rowcount || ' rows are affected');
 end;
