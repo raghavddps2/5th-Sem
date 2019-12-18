@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Marks</title>
+</head>
+<body>
+
+    <h1>{{msg}}</h1>
+    <form action="{{url_for('index')}}" method="POST" onsubmit="return validate()">
+        <input type="text" name="usn" id="usn" placeholder="Enter USN">
+        <input type="date" name="dob" id="dob" placeholder="Enter Date">
+
+        <input type="number" name="marks1" id="marks1" required placeholder="Enter Marks1">
+        <input type="number" name="marks2" id="marks2" required placeholder="Enter Marks2">
+        <input type="number" name="marks3" id="marks3" required placeholder="Enter Marks3">
+
+        <input type="submit"value="Submit">
+    </form>
+</body>
+<script>
+    //We validate the value emptiness at the client side here.
+    console.log("hi")
+    function validate(){
+        var val1 = document.getElementById("usn").value
+        var val2 = document.getElementById("dob").value
+        var val3 = document.getElementById("marks1").value
+        var val4 = document.getElementById("marks2").value
+        var val5 = document.getElementById("marks3").value
+
+        console.log(val1)
+        if(val1 == "" || val2 == "" || val3 == "" || val4 == "" || val5 == ""){
+            alert("Please fill all the fields")
+            return false;
+        } 
+        return true;
+    }
+</script>
+</html>
