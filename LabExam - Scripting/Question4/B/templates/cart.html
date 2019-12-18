@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+</head>
+<body>
+    <table border="1">
+        
+            <td>Item</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            {% for item in cart %}
+
+                <tr>
+                    <td>{{item["name"]}}</td>
+                    <td>{{item["quantity"]}}</td>
+                    <td>{{item["price"]}}</td>
+                </tr>
+
+            {% endfor %}
+    </table>
+    <h3>The total cart price is:  {{total}}</h3>
+    <a href="{{url_for('store')}}">Go back to store</a>
+</body>
+</html>

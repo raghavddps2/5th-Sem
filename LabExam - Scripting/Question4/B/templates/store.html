@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store</title>
+</head>
+<body>
+    
+    <form action="{{url_for('store')}}" method="POST">
+        <input type="number" placeholder="Enter quantity" name="eggs">Eggs (Rs 10)
+        <input type="number" placeholder="Enter quantity" name="bread">Bread (Rs 30)
+        <input type="number" placeholder="Enter quantity" name="milk">Milk (Rs 20)
+        <input type="submit" value="Add to cart">
+    </form>
+
+    <a href="{{url_for('cart')}}">View your chopping cart</a>
+    
+</body>
+</html>
