@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ATM</title>
+</head>
+<body>
+    <h1>{{msg}}</h1>
+    <h2>Balance: {{bal}}</h2>
+    <h2>Count: {{cnt}}</h2>
+    <form action="{{url_for('index')}}" method="POST" id="atm">
+        <input type="number" name="amount" placeholder="Enter the amount">
+        <input type="submit" id="d" value="Deposit" name="action" onclick="return validateForm(this)">
+        <input type="submit" id="w" value="Withdraw" name="action" onclick="return validateForm(this)">
+    </form>
+
+</body>
+<script>
+    function validateForm(button) {
+
+    var form = document.getElementById("atm")
+
+    //This is verification at the client side.
+    //The verification at the server side is done in the python file.
+
+    if(form.amount.value == ""){
+        alert("Amount required");
+        return false;
+    }
+
+    if (parseInt(form.amount.value) < 0){
+        alert("The enetered amount is negative");
+        return false;
+    }
+    if (button.value == "Withdraw" && parseInt(form.amount.value) > 5000){
+        alert("Withdarwl cannot be greater than 5000");
+        return false;
+    }
+    return true;
+}
+</script>
+</html>
