@@ -9,7 +9,7 @@ changes colour and displays the details of the patient stored in the JSON object
 
 */
 console.log("hi")
-window.onload = () => {
+window.onload = function() {
 
     // Dummy data, just copied again and again.
     patient = [
@@ -385,7 +385,7 @@ window.onload = () => {
         //This one is when mouse if hovered on the same
         elem.onmouseover= function ()
 			{      
-                //Pehle simply removing the attribute hidden, jisse ki table dikhaye de bc.
+                //Pehle simply removing the attribute hidden, jisse ki table dikhaye de bhai.
                 document.getElementById("patient").removeAttribute("hidden");
                 //Then putting a different color on hover.
                 document.getElementById(item.name).style.color = 'Red'

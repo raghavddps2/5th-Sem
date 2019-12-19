@@ -18,7 +18,7 @@ def index():
     #According to dcos, it takes the string we got and the matcher as "%Y-%m-%d"
     try:
         time.strptime(dob,"%Y-%m-%d") # We use this one, when we specify type as date in html
-        # time.strptime(dob,"%d/%m/%Y")  #This when not specified as date in html
+        # time.strftime(dob,"%d/%m/%Y")  #This when not specified as date in html
     except ValueError:
         msg = "Enter the date in proper format"
         return render_template('index.html',msg=msg)

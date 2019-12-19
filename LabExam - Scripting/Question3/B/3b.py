@@ -34,6 +34,7 @@ for i in wordDict:
 #NOw, to obtain the top 10, we use the sorted function.
 # We specify the key, as to on what basis to sort, that is the length, the second part of tuple.
 # Here, the val represent the each item.
+print(wordDict.items()) #This will give the items with the tuples containg word and the count.
 list1 = sorted(wordDict.items(),key = lambda val:val[1],reverse=True)
 #This way we obtain the words which have greater occurence.
 for i in range(10):

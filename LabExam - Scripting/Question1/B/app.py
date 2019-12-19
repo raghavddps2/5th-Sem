@@ -11,9 +11,19 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(10)
 
+
+
+#Now, this is very very very important, usually, what happens is when we close the browser, the data goes. 
+#This is just because, the session was not permanent. To make the session, permanent, we have to specify 
+#the session.permanent as True, otherwise, the session is lost as soon as the browser window is closed.
+
+@app.before_request
+def before_request():
+    session.permanent = True
+
 @app.route('/',methods=["POST","GET"])
 def index():
-
+    print("hi")
     try:
             balance = session["balance"]
             count = session["count"]

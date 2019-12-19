@@ -25,6 +25,9 @@ def cart():
 
     cart = [] #We initializze the empty cart.
     total = 0 #INitial cart price
+
+    #The total price will automatically, be correct, no need to store it in session, as we are calculating it every time
+    #according to the quantity present in the cart.
     for item in [("eggs",10),("milk",20),("bread",30)]:
         cart.append({"name":item[0],"quantity":session[item[0]],"price": int(session[item[0]])*item[1]})
         total += int(session[item[0]]) * item[1]

@@ -38,6 +38,8 @@
         alert("Withdarwl cannot be greater than 5000");
         return false;
     }
+    //When false is returned from here, the form is not submitted and it does not go to the server side.
+    //it only goes when true is returned, which will go in all the other cases.
     return true;
 }
 </script>
