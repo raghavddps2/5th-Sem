@@ -11,6 +11,7 @@ changes colour and displays the details of the patient stored in the JSON object
 console.log("hi")
 window.onload = () => {
 
+    // Dummy data, just copied again and again.
     patient = [
         {
             "name":"Raghav",
@@ -372,16 +373,25 @@ window.onload = () => {
         document.getElementById("hospitals").appendChild(ele1);
     });
 
+    //Now, we will attach a function to the hospital json, that will see if anyone hovers.
     hospital.forEach(mouseEventHandler);
 
-
+    //mouseEventHandler function.
     function mouseEventHandler(item,index){
+
+        //Yahan pe getting the id of the patient-details text, to identify kahan hua hai hover.
         elem=document.getElementById(item.name);
         
+        //This one is when mouse if hovered on the same
         elem.onmouseover= function ()
-			{   
+			{      
+                //Pehle simply removing the attribute hidden, jisse ki table dikhaye de bc.
                 document.getElementById("patient").removeAttribute("hidden");
+                //Then putting a different color on hover.
                 document.getElementById(item.name).style.color = 'Red'
+                
+                //Here, we loop over each patient and then check if hospital name in patient is same as the item.name,
+                //matlab jahan hover hus hai, from hospital table. Agar aisa, we add the data accordingly dynamically.
                 patient.forEach(function(item1,index){
 
                     if(item.name==item1.hospital){
@@ -401,6 +411,7 @@ window.onload = () => {
                         ele3.appendChild(d7);
                         ele3.appendChild(d8);
 
+                        //AB tests, apne aap mein ek array hai toh use ache se iterate karke har baar ek row banake add kardiya.
                         item1.tests.forEach(function(item2,index){
                             
                             var ele4 = document.createElement("tr");
@@ -417,11 +428,15 @@ window.onload = () => {
     
                         });
                         
+                        //Finally main patient-data mein apna created element append.
                         document.getElementById("patient-data").appendChild(ele3);
                     }
                 });
             }
             
+            //When mouse hover is done, all we have to do is set the data in the table to empty.
+            //Set back the color of the text.
+            //set the table as hidden again.
             elem.onmouseout = function(){
                 document.getElementById("patient-data").innerHTML = "";
                 document.getElementById(item.name).style.color = 'black'
