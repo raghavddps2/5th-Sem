@@ -49,12 +49,13 @@ $ns queue-limit $n(2) $n(3) 20
 $ns simplex-link-op $n(2) $n(3) queuePos 0.5
 
 
-#Set the error model on link n(2) and n(3) and insert the error model.
-set loss_module [new ErrorModel]
-$loss_module ranvar [new RandomVariable/Uniform]
-$loss_module drop-target [new Agent/Null]
-$loss_module set rate_ $error_rate
-$ns lossmodel $loss_module $n(2) $n(3)
+#Setting up the error model.
+set err [new ErrorModel]
+$err ranvar [new RandomVariable/Uniform]
+$err drop-target [new Agent/Null]
+$err set rate_ $error_rate
+$ns lossmodel $err $n(2) $n(3)
+
 
 #Setup TCP connection between n(0) and n(4)
 set tcp [new Agent/TCP/Newreno]
