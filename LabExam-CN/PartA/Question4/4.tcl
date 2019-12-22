@@ -42,7 +42,7 @@ $ns duplex-link $n6 $n0 2Mb 10ms DropTail
 
 Agent/Ping instproc recv {from rtt} {
     $self instvar node_
-    puts "node [$node_ id] received ping answer from \ $from with a roound trip time of $rtt ms"
+    puts "node [$node_ id] received ping answer from $from with a roound trip time of $rtt ms"
 }
 #Creating the ping agents.
 set p1 [new Agent/Ping]
