@@ -32,17 +32,17 @@ set n6 [$ns node]
 
 
 #Setting up the duplex links between 0 and other nodes.
-$ns duplex-link $n1 $n0 2Mb 10ms DropTail
+$ns duplex-link $n1 $n0 2Mb 12ms DropTail
 $ns duplex-link $n2 $n0 2Mb 10ms DropTail
 $ns duplex-link $n3 $n0 2Mb 10ms DropTail
 $ns duplex-link $n4 $n0 2Mb 10ms DropTail
-$ns duplex-link $n5 $n0 2Mb 10ms DropTail
+$ns duplex-link $n5 $n0 2Mb 11ms DropTail
 $ns duplex-link $n6 $n0 2Mb 10ms DropTail
 
 
 Agent/Ping instproc recv {from rtt} {
     $self instvar node_
-    puts "node [$node_ id] received ping answer from $from with a roound trip time of $rtt ms"
+    puts "node [$node_ id] received ping answer from \ $from with a roound trip time of $rtt ms"
 }
 #Creating the ping agents.
 set p1 [new Agent/Ping]
@@ -68,8 +68,8 @@ $ns connect $p3 $p6
 
 # $Have to set queue limits for one side
 $ns queue-limit $n0 $n4 3
-$ns queue-limit $n0 $n5 0
-$ns queue-limit $n0 $n6 1
+$ns queue-limit $n0 $n5 2
+$ns queue-limit $n0 $n6 2
 
 $ns at 0.0 "$p1 send"
 $ns at 0.4 "$p2 send"
