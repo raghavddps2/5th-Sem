@@ -1,0 +1,13 @@
+title = Bandwidth vs Packets dropped
+title_x = Bandwidth
+title_y = Packets dropped
+
+0.1 619
+0.2 526
+0.3 433
+0.4 248
+0.5 210
+1.0 0
+
+#Now, all that needs to be done is, execute this file as xgraph 1.txt
+
