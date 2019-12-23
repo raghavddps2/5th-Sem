@@ -108,3 +108,19 @@ void main(){
         printf("\nNegative weight cycle exists\n");
     }
 }
+
+// Ex matrix 1
+// 0 6 4 5 0 0
+// 0 0 0 0 -1 0
+// 0 -2 0 0 3 0
+// 0 0 -2 0 0 -1
+// 0 0 0 0 0 3
+// 0 0 0 0 0 0
+
+
+//Ex matrix 2 (Negative weight cycle.)
+// 0 4 5 0
+// 0 0 0 7
+// 0 7 0 0
+// 0 0 -15 0
+
