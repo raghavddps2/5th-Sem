@@ -91,7 +91,7 @@ $ns at 0.0 "$n0 label TCP_Traffic"
 $ns at 0.0 "$n1 label UDP_Traffic"
 $ns at 0.2 "$cbr0 start"
 $ns at 0.3 "$ftp start"
-$ns at 7.3 "$ftp start"
+$ns at 7.3 "$ftp stop"
 $ns at 7.2 "$cbr0 stop"
 $ns at 7.5 "finish"
 
