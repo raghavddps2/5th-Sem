@@ -30,7 +30,7 @@ int generate(int mode,int checksum){
         sum = sum + checksum;
     }
 
-    if(sum%65536 != 0){
+    if(sum/65536 != 0){
         n = sum%65536;
         sum = sum/65536 + n;
     }
