@@ -1,3 +1,5 @@
+//The contributor of the code below is Ishank Dev. 
+// He holds full rights of the code released under GNU GPL license.
 #include<stdio.h>
 #include<stdlib.h>
 int packets[10];
