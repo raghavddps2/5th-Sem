@@ -12,7 +12,6 @@ int e,c; //These are some variables used with lops.
 
 //This simply performs an xor operation 
 void xor() {
-;
     for(int i=1;i<N;i++){
         cs[i] = ((cs[i] == g[i]) ? '0' :'1');
     }
