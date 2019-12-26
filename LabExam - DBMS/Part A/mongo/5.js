@@ -23,8 +23,8 @@ db.BOOK.insert({"isbn":"BOOK11","title":"android","author":"author6","publisher"
 
 // Query 1 : Obtain the name of the student who has borrowed the book bearing ISBN "123"
 print("--------------------Query 1 ---------------------------");
-db.BOOK.find({"isbn":"BOOK3"}).pretty().forEach(printjson);
+db.BOOK.find({"isbn":"BOOK3"},{"title":1,_id:0,"author":1}).pretty().forEach(printjson);
 
 // Query 2 : Obtain the Names of students who have borrowed database books.
 print("--------------------Query 2 ---------------------------");
-db.BOOK.find({"title":"database"}).pretty().forEach(printjson);
+db.BOOK.find({"title":"database"},{"title":1,_id:0,"author":1}).pretty().forEach(printjson);
