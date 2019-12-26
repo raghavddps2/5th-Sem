@@ -54,6 +54,8 @@ select bid from reserves where sid = (select sid from sailor where sname = 'Ram'
 -- Query2 : Retrieve the bid of the boats reserved by all the sailors.
 -- We need to join the two tables to look at the bid of boats reserved by each sailor.
 select bid,name from reserves r join sailor s on (r.sid = s.sid)
+-- Other interpretation
+select bid from reserves group by bid having count(sid) = (select count(sid) from sailor)
 
 -- Query3 : Find the number of boats reserved by each sailor
 select count(bid) as count,sid from reserves group by sid

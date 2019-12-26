@@ -55,6 +55,7 @@ select wname from warehouse where wno IN (select wno from shipment where pno IN 
 
 -- Query2 : Retrieve the PNO of the parts shipped by all the warehouses.
 select pno,wname from warehouse w join shipment s on w.wno = s.wno
-
+-- other interpretation
+select pno from shipment group by pno having count(wno) = (select count(wno) from warehouse);
 -- Query3: Find the number of parts supplied by each warehouse
 select count(pno) as count,wno from shipment group by wno;
