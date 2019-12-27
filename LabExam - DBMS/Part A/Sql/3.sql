@@ -27,6 +27,7 @@ create table reserves(
 
     bid Number NOT NULL,
     sid Number NOT NULL,
+    primary key(bid,sid),
     Day1 varchar(10),
     foreign key(bid) references boat(bid) on delete cascade,
     foreign key(sid) references sailor(sid) on delete cascade

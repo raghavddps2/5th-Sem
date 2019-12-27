@@ -26,6 +26,7 @@ create table assigned_to(
 
     usn varchar(10) NOT NULL,
     projectNo Number NOT NULL,
+    primary key(usn,projectNo),
     foreign key(usn) references EMPLOYEE(ssn),
     foreign key(projectNo) references project(projectNo)
 );

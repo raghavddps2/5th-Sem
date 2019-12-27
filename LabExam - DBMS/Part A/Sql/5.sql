@@ -30,6 +30,7 @@ create table borrow(
     isbn varchar(10),
     usn varchar(10),
     date1 varchar(10),
+    primary key(isbn,usn),
     foreign key(isbn) references book(isbn) on delete cascade,
     foreign key(usn) references student(usn) on delete cascade
 );

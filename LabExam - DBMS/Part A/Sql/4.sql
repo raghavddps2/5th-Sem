@@ -29,6 +29,7 @@ create table shipment(
     wno Number NOT NULL,
     Qty Number,
     date1 varchar(15),
+    primary key(pno,wno),
     foreign key(pno) references part1(pno),
     foreign key(wno) references warehouse(wno)   
 );

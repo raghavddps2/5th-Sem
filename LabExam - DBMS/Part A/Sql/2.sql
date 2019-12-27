@@ -26,6 +26,7 @@ create table SUPPLY(
     pno Number NOT NULL,
     sno Number NOT NULL,
     quantity Number,
+    primary key(pno,sno),
     foreign key(pno) references part(pno) on delete cascade,
     foreign key(sno) references supplier(sno) on delete cascade
 );
