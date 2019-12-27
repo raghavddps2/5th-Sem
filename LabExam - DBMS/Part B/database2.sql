@@ -19,7 +19,8 @@ create table emp_copy(
     age number,
     address varchar(10),
     salary number NOT NULL,
-    primary key(ssn)
+    primary key(ssn),
+    foreign key(ssn) references employee(ssn) on delete cascade
 );
 insert into employee(ssn,name,deptno,age,address,salary) values(1,'rahul',1,34,'Bangalore',23000);
 insert into employee(ssn,name,deptno,age,address,salary) values(2,'suresh',2,42,'Bangalore',24000);
