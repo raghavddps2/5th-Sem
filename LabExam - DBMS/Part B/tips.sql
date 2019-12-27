@@ -1,4 +1,4 @@
--- How to create a new user.
+-- How to create a new user. (For the triggger program if it says sys obj not allowed.)
 create user user1 identified by password;
 grant create session to user1;
 grant create table to user1;
